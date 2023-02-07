@@ -1,0 +1,4 @@
+- hosts: website
+  tasks:
+    - name: Install htop package
+      ansible.builtin.command: yum install htop -y
