@@ -5,15 +5,8 @@
   tasks:
   
   - name: install yum fail2ban packages
-    yum: 
-      name: "{{ item }}"   
-      state: latest
-      update_cache: yes
-      cache_valid_time: 3600
-    with_items:
-      - fail2ban
-      - sendmail
-  
+    ansible.builtin.command: yum install fail2ban -y
+
   - name: override the basic fail2ban configuration with .local file
     copy:
       src: jail.local
