@@ -4,8 +4,8 @@
   become: yes
   tasks:
   
-  - name: install apt fail2ban packages
-    apt: 
+  - name: install yum fail2ban packages
+    yum: 
       name: "{{ item }}"   
       state: latest
       update_cache: yes
