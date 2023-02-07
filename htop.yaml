@@ -1,9 +1,8 @@
-- name: install htop
-  hosts: website
-  become: yes
+- hosts: website
+  become: True
   tasks:
-  
-  - name: install htop
-    yum: 
-      name: htop 
-      state: present
+    - name: Install htop package
+      yum:
+        name: htop
+        state: present
+        update_cache: True
