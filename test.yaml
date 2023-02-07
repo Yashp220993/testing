@@ -1,0 +1,9 @@
+- hosts: website
+  tasks:
+    - name: Creates directory
+      file:
+        path: /src/www
+        state: directory
+        owner: root
+        group: root
+        mode: 0775
