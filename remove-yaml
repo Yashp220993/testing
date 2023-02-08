@@ -1,0 +1,6 @@
+- hosts: website
+  tasks:
+    - name: Remove htop package
+      yum:
+        name: htop
+        state: absent
