@@ -1,9 +1,12 @@
-- hosts: website
+- name: Check for missing Linux patches
+  hosts: 172.17.14.101
+  become: yes
   tasks:
-    - name: Creates directory
-      file:
-        path: /src/www
-        state: directory
-        owner: root
-        group: root
-        mode: 0775
+    - name: Check available updates from yum
+      yum:
+        list: updates
+      register: yum_updates
+
+    - name: Display missing patches
+      debug:
+        msg: "Available updates: {{ yum_updates.results | map(attribute='name') | list }}"
