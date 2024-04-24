@@ -9,4 +9,4 @@
 
     - name: Display missing patches
       debug:
-        msg: "Available updates: {{ yum_updates.results | map(attribute='name') | list }}"
+        msg: "Available updates:\n{{ updates.results | map(attribute='name') | list | join('\n') }}"
